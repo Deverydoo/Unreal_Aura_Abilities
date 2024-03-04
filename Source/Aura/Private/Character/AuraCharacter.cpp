@@ -49,20 +49,12 @@ void AAuraCharacter::InitAbilityActorInfo()
 	AbilitySystemComponent = AuraPlayerState->GetAbilitySystemComponent();
 	AttributeSet = AuraPlayerState->GetAttributeSet();
 	
-	UE_LOG(LogTemp, Warning, TEXT("InitAbilityActorInfo UI"))
 	if (AAuraPlayerController* AuraPlayerController = Cast<AAuraPlayerController>(GetController()))
 	{
 		if (AAuraHUD* AuraHUD = Cast<AAuraHUD>(AuraPlayerController->GetHUD()))
 		{
 			AuraHUD->InitOverlay(AuraPlayerController, AuraPlayerState, AbilitySystemComponent, AttributeSet);
 		}
-		else
-		{
-			UE_LOG(LogTemp, Warning, TEXT("AuraHUD failed"))
-		}
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("AuraPlayerController failed"))
-	}
+	InitializePrimaryAttributes();
 }
