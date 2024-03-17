@@ -47,9 +47,17 @@ public:
  FGameplayTag Attributes_Message_ManaPotion;
  FGameplayTag Attributes_Message_ManaCrystal;
 
- 
-protected:
+ /* Input Tags */
+FGameplayTag InputTag_LMB;
+FGameplayTag InputTag_RMB;
+FGameplayTag InputTag_1;
+FGameplayTag InputTag_2;
+FGameplayTag InputTag_3;
+FGameplayTag InputTag_4;
 
+/* Event Tags */
+ FGameplayTag Event_Montage_Firebolt;
+ 
 private:
  static FAuraGameplayTags GameplayTags;
 };
