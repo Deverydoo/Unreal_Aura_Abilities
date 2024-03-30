@@ -34,7 +34,6 @@ public:
  FGameplayTag Attributes_Secondary_ManaRegeneration;
  FGameplayTag Attributes_Secondary_MaxHealth;
  FGameplayTag Attributes_Secondary_MaxMana;
- 
 
  /* Vital */
  FGameplayTag Attributes_Vital_Health;
@@ -55,6 +54,10 @@ FGameplayTag InputTag_2;
 FGameplayTag InputTag_3;
 FGameplayTag InputTag_4;
 
+ /* Combat */
+FGameplayTag Damage;
+FGameplayTag Effects_HitReact;
+ 
 /* Event Tags */
  FGameplayTag Event_Montage_Firebolt;
  
