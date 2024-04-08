@@ -9,7 +9,6 @@
 
 UOverlayWidgetController* AAuraHUD::GetOverlayWidgetController(const FWidgetControllerParams& WCParams)
 {
-	GEngine->AddOnScreenDebugMessage(1, 5.f, FColor::Cyan, FString("HUD GetOverlayWidgetController"));
 	if (OverlayWidgetController == nullptr)
 	{
 		OverlayWidgetController = NewObject<UOverlayWidgetController>(this, OverlayWidgetControllerClass);
@@ -32,12 +31,9 @@ UAttributeMenuWidgetController* AAuraHUD::GetAttributeMenuWidgetController(const
 
 void AAuraHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS)
 {
-	GEngine->AddOnScreenDebugMessage(1, 5.f, FColor::Cyan, FString("HUD InitOverlay"));
-
 	checkf(OverlayWidgetClass, TEXT("OverlayWidgetClass uninitialized. Fill out BP_AuraHUD"));
 	checkf(OverlayWidgetControllerClass, TEXT("OverlayWidgetControllerClass failed, Fill out BP_AuraHUD"));
 
-	GEngine->AddOnScreenDebugMessage(1, 5.f, FColor::Cyan, FString("InitOverlay"));
 	UUserWidget* Widget = CreateWidget<UUserWidget>(GetWorld(), OverlayWidgetClass);
 	OverlayWidget = Cast<UAuraUserWidget>(Widget);
 

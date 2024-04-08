@@ -130,6 +130,30 @@ public:
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category = "Vital Attributes")
 	FGameplayAttributeData MaxMana;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxMana);
+
+	/* Resistance Attributes */
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_PhysicalResistance, Category = "Resistances Attributes")
+	FGameplayAttributeData PhysicalResistance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, PhysicalResistance);
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_BluntResistance, Category = "Resistances Attributes")
+	FGameplayAttributeData BluntResistance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, BluntResistance);
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_PierceResistance, Category = "Resistances Attributes")
+	FGameplayAttributeData PierceResistance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, PierceResistance);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_FireResistance, Category = "Resistance Attributes")
+	FGameplayAttributeData FireResistance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, FireResistance);
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_IceResistance, Category = "Resistances Attributes")
+	FGameplayAttributeData IceResistance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, IceResistance);
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_LightningResistance, Category = "Resistances Attributes")
+	FGameplayAttributeData LightningResistance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, LightningResistance);
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_ArcaneResistance, Category = "Resistances Attributes")
+	FGameplayAttributeData ArcaneResistance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, ArcaneResistance);
 	
 	/*
 	 * Vital Attributes.
@@ -194,7 +218,24 @@ public:
 	UFUNCTION()
 	void OnRep_ManaRegeneration(const FGameplayAttributeData& OldManaRegeneration) const;
 
+	/* Resistance RepNotify Functions */
+	UFUNCTION()
+	void OnRep_PhysicalResistance(const FGameplayAttributeData& OldPhysicalResistance) const;
+	UFUNCTION()
+	void OnRep_BluntResistance(const FGameplayAttributeData& OldBluntResistance) const;
+	UFUNCTION()
+	void OnRep_PierceResistance(const FGameplayAttributeData& OldPierceResistance) const;
+
+	UFUNCTION()
+	void OnRep_FireResistance(const FGameplayAttributeData& OldFireResistance) const;
+	UFUNCTION()
+	void OnRep_IceResistance(const FGameplayAttributeData& OldIceResistance) const;
+	UFUNCTION()
+	void OnRep_LightningResistance(const FGameplayAttributeData& OldLightningResistance) const;
+	UFUNCTION()
+	void OnRep_ArcaneResistance(const FGameplayAttributeData& OldArcaneResistance) const;
+
 private:
 	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props) const;
-	void ShowFloatingText(const FEffectProperties& Props, const float LocalIncomingDamage) const;
+	void ShowFloatingText(const FEffectProperties& Props, const float LocalIncomingDamage, bool bBlocked, bool bCritical) const;
 };
